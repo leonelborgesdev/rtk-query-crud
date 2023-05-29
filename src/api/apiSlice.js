@@ -8,6 +8,8 @@ export const apiSlice = createApi({
   endpoints: (builder) => ({
     getTasks: builder.query({
       query: () => "/tasks",
+      providesTags: ["Tasks"], //todo esto se llama tasks
+      transformResponse: (response) => response.sort((a, b) => b.id - a.id), //para ordenar las tareas
     }),
     createTask: builder.mutation({
       query: (newTask) => ({
@@ -15,6 +17,7 @@ export const apiSlice = createApi({
         method: "POST",
         body: newTask,
       }),
+      invalidatesTags: ["Tasks"], //cuando yo cree una tarea se actualice la lista
     }),
   }),
 });
