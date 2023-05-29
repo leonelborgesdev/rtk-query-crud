@@ -25,6 +25,7 @@ export const apiSlice = createApi({
         method: "PATCH",
         body: updatedTask,
       }),
+      invalidatesTags: ["Tasks"],
     }),
     deleteTask: builder.mutation({
       query: (id) => ({

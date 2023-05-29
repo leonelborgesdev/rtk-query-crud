@@ -25,7 +25,7 @@ function TasksList() {
             onChange={(e) => {
               updateTask({
                 ...task,
-                completed: e.target.completed,
+                completed: e.target.checked,
               });
               console.log(task.completed);
             }}
