@@ -12,4 +12,4 @@ export const apiSlice = createApi({
   }),
 });
 
-const { useGetTasksQuery } = apiSlice;
+export const { useGetTasksQuery } = apiSlice;
