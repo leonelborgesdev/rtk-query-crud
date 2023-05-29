@@ -9,7 +9,14 @@ export const apiSlice = createApi({
     getTasks: builder.query({
       query: () => "/tasks",
     }),
+    createTask: builder.mutation({
+      query: (newTask) => ({
+        url: "/tasks",
+        method: "POST",
+        body: newTask,
+      }),
+    }),
   }),
 });
 
-export const { useGetTasksQuery } = apiSlice;
+export const { useGetTasksQuery, useCreateTaskMutation } = apiSlice;
